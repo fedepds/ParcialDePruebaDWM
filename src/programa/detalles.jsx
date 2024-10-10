@@ -1,7 +1,9 @@
 import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 function Detalles() {
   const [datos, setDatos] = useState([]);
+    const navigate = useNavigate();
 
   const { state } = useLocation();
 
@@ -24,7 +26,11 @@ function Detalles() {
     return (
       <div className="conteneder">
         {datos.map((dato) => (
+   
           <div key={dato.id}>
+          <button onClick={()=>{
+           navigate(`/home`);
+          }}>Atras</button>
             <h3>{dato.title}</h3>
             <p>{dato.description}</p>
             <p>{dato.players}</p>

@@ -1,0 +1,72 @@
+
+/* cuerpo*/
+body {
+    font-family: Arial, sans-serif; /* Fuente y tipo de letra */
+    background-color: #f4f4f4; /* Color de fondo */
+    margin: 0; /* Margen exterior */
+    padding: 0; /* Relleno interior */
+}
+
+/* contenedor */
+.contenedor {
+    display:inline-block; /* Mostrar como inline-block */
+    flex-direction: column; /* Dirección de los elementos hijos */
+    align-items: center; /* Alinear elementos horizontalmente */
+    justify-content: center; /* Alinear elementos verticalmente */
+    margin: 20px auto; /* Margen superior e inferior y centrado horizontal */
+    padding: 20px; /* Relleno interior */
+    max-width: 80%; /* Ancho máximo del contenedor */
+    background-color: #ffffff; /* Color de fondo */
+    border-radius: 12px; /* Radio de las esquinas */
+}
+
+/* Estilos para el título del contenedor */
+.contenedor h3 {
+    font-size: 24px; /* Tamaño de fuente */
+    color: black; /* Color del texto */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilos para los párrafos del contenedor */
+.contenedor p {
+    font-size: 16px; /* Tamaño de fuente */
+    color: grey; /* Color del texto */
+    margin: 8px 0; /* Margen superior e inferior */
+}
+
+/* Estilos para los botones del contenedor */
+.contenedor button {
+    background-color: red; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Relleno interior */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Radio de las esquinas */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+/* Estilos para el botón cuando está enfocado */
+.contenedor button:focus {
+    outline: none; /* Sin contorno al enfocar */
+}
+
+/* Estilos para pantallas con un ancho máximo de 768px */
+@media (max-width: 768px) {
+    .contenedor {
+        max-width: 95%; /* Ancho máximo del contenedor */
+        padding: 15px; /* Relleno interior */
+    }
+
+    .contenedor h3 {
+        font-size: 20px; /* Tamaño de fuente */
+    }
+
+    .contenedor p {
+        font-size: 14px; /* Tamaño de fuente */
+    }
+
+    .contenedor button {
+        font-size: 14px; /* Tamaño de fuente */
+        padding: 8px 15px; /* Relleno interior */
+    }
+}

@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import './detalles.css';
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 function Detalles() {
@@ -24,7 +25,7 @@ function Detalles() {
   console.log(datos);
   const MostrarDatos = ({ datos }) => {
     return (
-      <div className="conteneder">
+      <div className="contenedor">
         {datos.map((dato) => (
    
           <div key={dato.id}>

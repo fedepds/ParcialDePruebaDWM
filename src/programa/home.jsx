@@ -5,6 +5,8 @@ function Home() {
   const [games, setGames] = useState([]);
   const [newGame, setNewGame] = useState("");
   const [newGameDescription, setNewGameDescription] = useState("");
+  const [newGamePlayers, setNewGamePlayers] = useState(0);
+  const [newGameCategories, setNewGameCategories] = useState("");
   const [showForm, setShowForm] = useState(false); // Estado para mostrar el formulario
   const navigate = useNavigate();
 
@@ -50,8 +52,8 @@ function Home() {
           body: JSON.stringify({
             title: newGame,
             description: newGameDescription,
-            players: 0,
-            categories: [],
+            players: newGamePlayers,
+            categories: newGameCategories,
           }),
         });
 
@@ -61,7 +63,10 @@ function Home() {
 
         const updatedGames = await response.json(); // El servidor devuelve el arreglo de juegos actualizado
         setGames(updatedGames); // Actualizar el estado con la lista de juegos retornada por el servidor
-        setNewGame(""); // Limpiar el campo de entrada
+        setNewGame(""); // Lo limpio para estar vacio para volver a usarlo
+        setNewGameCategories("");
+        setNewGamePlayers(0);
+        setNewGameDescription("");
         setShowForm(false); // Ocultar el formulario después de agregar el juego
       } catch (error) {
         console.error(error.message);
@@ -75,11 +80,9 @@ function Home() {
         <h1>Título de la aplicación</h1>
         <button onClick={() => setShowForm(!showForm)}>
           {showForm ? "Cancelar" : "Agregar juego"}{" "}
-          {/* Cambia el texto del botón */}
         </button>
       </header>
 
-      {/* Mostrar el formulario solo si showForm es true */}
       {showForm && (
         <form onSubmit={handleAgregarJuego}>
           <input
@@ -93,6 +96,18 @@ function Home() {
             value={newGameDescription}
             onChange={(e) => setNewGameDescription(e.target.value)}
             placeholder="Descripción del nuevo juego"
+          />
+          <input
+            type="number"
+            value={newGamePlayers}
+            onChange={(e) => setNewGamePlayers(e.target.value)}
+            placeholder="Num de jugadores"
+          />
+          <input
+            type="text"
+            value={newGameCategories}
+            onChange={(e) => setNewGameCategories(e.target.value)}
+            placeholder="Categoria"
           />
           <button type="submit">Guardar juego</button>
         </form>

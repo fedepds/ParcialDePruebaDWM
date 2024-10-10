@@ -10,6 +10,7 @@ function Home() {
   const [showForm, setShowForm] = useState(false); // Estado para mostrar el formulario
   const navigate = useNavigate();
 
+  // Obtener todos los juegos del servidor
   const getJuegos = async () => {
     const response = await fetch("http://localhost:3000/api/games");
     if (!response.ok) {
@@ -22,6 +23,33 @@ function Home() {
   useEffect(() => {
     getJuegos();
   }, []);
+
+  // Eliminar un juego por ID
+  const handleEliminarJuego = async (gameId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3000/api/games/${gameId}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Error al eliminar el juego");
+      }
+
+      // Si la eliminación fue exitosa, actualiza la lista de juegos
+      console.log("Juego eliminado correctamente");
+      setGames((prevGames) => prevGames.filter((game) => game.id !== gameId));
+    } catch (error) {
+      console.error("Error al eliminar el juego:", error);
+    }
+  };
+
+  // Mostrar la lista de juegos
   const MostrarJuegos = ({ games }) => (
     <div className="games-container">
       {games.map((game) => (
@@ -34,12 +62,13 @@ function Home() {
           >
             Detalles
           </button>
-          <button>Borrar</button>
+          <button onClick={() => handleEliminarJuego(game.id)}>Borrar</button>
         </div>
       ))}
     </div>
   );
-  // Agregar Juego con POST al servidor
+
+  // Agregar un nuevo juego con POST al servidor
   const handleAgregarJuego = async (e) => {
     e.preventDefault(); // Prevenir que la página se recargue
     if (newGame.trim() !== "") {
@@ -61,15 +90,17 @@ function Home() {
           throw new Error("Error al agregar el juego");
         }
 
-        const updatedGames = await response.json(); // El servidor devuelve el arreglo de juegos actualizado
-        setGames(updatedGames); // Actualizar el estado con la lista de juegos retornada por el servidor
-        setNewGame(""); // Lo limpio para estar vacio para volver a usarlo
-        setNewGameCategories("");
-        setNewGamePlayers(0);
+        const updatedGames = await response.json(); // El servidor devuelve la lista de juegos actualizada
+        setGames(updatedGames); // Actualiza el estado con la lista de juegos
+        //Limpiar campos del formulario
+        setNewGame("");
         setNewGameDescription("");
-        setShowForm(false); // Ocultar el formulario después de agregar el juego
+        setNewGamePlayers(0);
+        setNewGameCategories("");
+        // Ocultar el formulario después de agregar el juego
+        setShowForm(false);
       } catch (error) {
-        console.error(error.message);
+        console.error("Error al agregar el juego:", error);
       }
     }
   };

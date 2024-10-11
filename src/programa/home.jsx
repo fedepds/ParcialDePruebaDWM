@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import './home.css';
 
 function Home() {
   const [games, setGames] = useState([]);
@@ -62,7 +63,7 @@ function Home() {
           >
             Detalles
           </button>
-          <button onClick={() => handleEliminarJuego(game.id)}>Borrar</button>
+          <button className= "Eliminar" onClick={() => handleEliminarJuego(game.id)}>Borrar</button>
         </div>
       ))}
     </div>

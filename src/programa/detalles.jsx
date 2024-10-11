@@ -23,7 +23,7 @@ function Detalles() {
   }, []);
 
   console.log(datos);
-  const MostrarDatos = ({ datos }) => {
+  const MostrarDatos = ( ) => {
     return (
       <div className="contenedor">
         {datos.map((dato) => (

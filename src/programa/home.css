@@ -1,88 +1,86 @@
+/* Estilo general de pagina */
 .App {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
+  font-family: Arial, sans-serif; /* Fuente*/
+  margin: 0; /* Margenes exteriores */
+  padding: 20px; /*Espacio interno*/
+  background-color: #f4f4f4; /* Color de fondo */
 }
 
+/* Encabezado */
 header.Application {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-
-  color: black;
-  border-radius: 5px;
+  display: flex; /* Organizar elementos */
+  justify-content: center; /* Centrarlos de manera orizontal  */
+  align-items: center; /* Centrar los elementos de manera vertical */
+  padding: 10px; /*Espacio interno */
+  color: black; /* Color del texto */
+  border-radius: 5px; /* Bordes redondeados */
 }
 
+/* Titulo de encabezado*/
 header h1 {
-  margin: 0;
-  font-size: 24px;
+  margin: 0; /* Margenes*/
+  font-size: 24px; /* tamaño de fuente */
 }
 
+/* botones */
 button {
-  background-color: green;
-  color: white;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  background-color: green; /* Color de fondo */
+  color: white; /* Color del texto  */
+  padding: 8px 12px; /* margenes internos */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a pointer cuando se pasa el ratón */
 }
 
-button:hover {
-  background-color: greenyellow;
-}
-
+/*  formulario */
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
+  display: flex; /* organizar los elementos del formulario */
+  flex-direction: column; /* ordenar los elementos por columnas */
+  gap: 10px; /* Separar los elementos a tanta distancia */
+  margin-top: 20px; /* margen superior */
 }
 
+/* campos del formulario */
 form input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px; /* Espaciado interno de 10px */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 4px; /* Bordes redondeados */
 }
 
+/* botón dentro del formulario */
 form button {
-  background-color: skyblue;
+  background-color: skyblue; 
 }
 
-form button:hover {
-  background-color: blue;
-}
-
+/* Contenedor para la lista de juegos */
 .games-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
+  display: flex; /* organizar las tarjetas de juegos */
+  flex-wrap: wrap; /* Permite que las tarjetas se ajusten en varias líneas si es necesario */
+  gap: 20px; /* Espacio entre cada tarjeta */
+  margin-top: 20px; /*margen superior */
 }
 
+/* Estilo de tarjeta */
 .game-card {
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 20px;
-  width: 200px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white; 
+  border: 1px solid #ccc; /* Borde */
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 20px; /* margen interno */
+  width: 200px; /* Anchura para las tarjetas */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra  */
 }
 
+/* título dentro de la tarjeta */
 .game-card h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 18px; 
+  margin-bottom: 10px; 
 }
 
+/* botones dentro de las tarjetas de juegos */
 .game-card button {
-  margin-right: 10px;
+  margin-right: 10px; 
 }
 
+/* boton eliminar*/
 .game-card .Eliminar {
-  background-color: red;
-}
-
-.game-card .Eliminar:hover {
-  background-color: red;
-}
+  background-color: red; }

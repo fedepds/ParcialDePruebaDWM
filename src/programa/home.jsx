@@ -51,7 +51,7 @@ function Home() {
   };
 
   // Mostrar la lista de juegos
-  const MostrarJuegos = ({ games }) => (
+  const MostrarJuegos = () => (
     <div className="games-container">
       {games.map((game) => (
         <div key={game.id} className="game-card">

@@ -50,23 +50,23 @@ body {
     outline: none; /* Sin contorno al enfocar */
 }
 
-/* Estilos para pantallas con un ancho máximo de 768px */
+/*Resposive*/
 @media (max-width: 768px) {
     .contenedor {
-        max-width: 95%; /* Ancho máximo del contenedor */
+        max-width: 95%; 
         padding: 15px; /* Relleno interior */
     }
 
     .contenedor h3 {
-        font-size: 20px; /* Tamaño de fuente */
+        font-size: 20px;
     }
 
     .contenedor p {
-        font-size: 14px; /* Tamaño de fuente */
+        font-size: 14px; 
     }
 
     .contenedor button {
-        font-size: 14px; /* Tamaño de fuente */
-        padding: 8px 15px; /* Relleno interior */
+        font-size: 14px; 
+        padding: 8px 15px;
     }
 }

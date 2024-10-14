@@ -21,6 +21,7 @@ function Home() {
     setGames(data);
   };
 
+  // Obtener los juegos al cargar el componente
   useEffect(() => {
     getJuegos();
   }, []);

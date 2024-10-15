@@ -21,6 +21,8 @@ function Home() {
     setGames(data);
   };
 
+
+
   // Obtener los juegos al cargar el componente
   useEffect(() => {
     getJuegos();
@@ -45,6 +47,7 @@ function Home() {
 
       // Si la eliminación fue exitosa, actualiza la lista de juegos
       console.log("Juego eliminado correctamente");
+
       setGames((prevGames) => prevGames.filter((game) => game.id !== gameId));
     } catch (error) {
       console.error("Error al eliminar el juego:", error);
@@ -59,7 +62,7 @@ function Home() {
           <h3>{game.title}</h3>
           <button
             onClick={() =>
-              navigate(`/game/${game.id}`, { state: { id: game.id } })
+              navigate(`/game/${game.id}`)
             }
           >
             Detalles
@@ -133,7 +136,7 @@ function Home() {
           <input
             type="number"
             value={newGamePlayers}
-            onChange={(e) => setNewGamePlayers(e.target.value)}
+            onChange={(e) => setNewGamePlayers(parseInt(e.target.value))}
             placeholder="Num de jugadores"
           />
           <input

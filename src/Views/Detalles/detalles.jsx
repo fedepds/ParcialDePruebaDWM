@@ -1,15 +1,16 @@
 import { useLocation } from "react-router-dom";
 import './detalles.css';
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate, useParams } from "react-router-dom";
 function Detalles() {
   const [datos, setDatos] = useState([]);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const {id} = useParams();
 
-  const { state } = useLocation();
+
 
   const getDatos = async () => {
-    const response = await fetch(`http://localhost:3000/api/games/${state.id}`);
+    const response = await fetch(`http://localhost:3000/api/games/${id}`);
     if (!response.ok) {
       throw new Error("Error al obtener los juegos");
     }
